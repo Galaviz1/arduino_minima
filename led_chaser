@@ -1,0 +1,93 @@
+void setup() {
+// Set the LED pins as the output pins
+  for (byte a = 2; a <= 7; a++) {
+    pinMode(a, OUTPUT);
+  }
+
+}
+//Call the functions
+void loop() {
+  one(4);
+  two(4);//VIP light pattern
+  three(6);
+  four(6);
+
+}
+//Pattern one
+void one (byte y) {
+  for (byte x = 0; x < y ; x++) {
+    for (byte a = 2; a <= 7; a++) {
+      digitalWrite(a, HIGH);
+      delay(50);
+      digitalWrite(a, LOW);
+    }
+    for (byte a = 7; a > 2; a--) {
+      digitalWrite(a, HIGH);
+      delay(50);
+      digitalWrite(a, LOW);
+    }
+  }
+}
+//Pattern two
+void two(byte y) {
+  for (byte x = 0; x < y ; x++) {
+    for (byte a = 0; a <= 4; a++) {
+      digitalWrite(2, HIGH);
+      digitalWrite(3, HIGH);
+      digitalWrite(4, HIGH);
+      delay(50);
+      digitalWrite(2, LOW);
+      digitalWrite(3, LOW);
+      digitalWrite(4, LOW);
+      delay(50);
+    }
+    for (byte a = 0; a <= 4; a++) {
+      digitalWrite(5, HIGH);
+      digitalWrite(6, HIGH);
+      digitalWrite(7, HIGH);
+      delay(50);
+      digitalWrite(5, LOW);
+      digitalWrite(6, LOW);
+      digitalWrite(7, LOW);
+      delay(50);
+    }
+  }
+}
+//Pattern three
+void three(byte y) {
+  for (byte x = 0; x <= y; x++ ) {
+    digitalWrite(2, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
+    digitalWrite(6, LOW);
+    digitalWrite(7, LOW);
+    delay(80);
+    digitalWrite(2, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(5, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(7, HIGH);
+    delay(80);
+  }
+}
+//Pattern four
+void four(byte y) {
+  for (byte x = 0; x <= y; x++) {
+    for (byte a = 2; a <= 7; a++) {
+      digitalWrite(a, LOW);
+      digitalWrite(a + 1, LOW);
+      delay(50);
+      digitalWrite(a, HIGH);
+      digitalWrite(a - 1, HIGH);
+    }
+    for (byte a = 7; a > 2; a--) {
+      digitalWrite(a, LOW);
+      digitalWrite(a - 1, LOW);
+      delay(50);
+      digitalWrite(a, HIGH);
+      digitalWrite(a - 1, HIGH);
+    }
+  }
+}
